@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Area.create([
+  {name: "CARGA Y CONSOLIDACION"},
+  {name: "DEVOLUCIONES"},
+  {name: "OPERACIONES"},
+  {name: "RECIBO"},
+  {name: "RECURSOS HUMANOS"},
+  {name: "REFRIGERADOS"},
+  {name: "SURTIDO"},
+  {name: "SURTIDO CAJAS"}
+])
