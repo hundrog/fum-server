@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   scope :api, defaults: {format: :json} do
     resources :users, only: [:index, :update]
     resources :areas
+    get '/selections', to: 'selections#index'
     devise_for :users, controllers: {
       sessions: 'sessions',
       resistrations: 'resistrations',
