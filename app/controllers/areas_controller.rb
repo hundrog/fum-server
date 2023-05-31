@@ -1,7 +1,7 @@
 class AreasController < ApplicationController
   before_action :set_area, only: %i[ show update destroy ]
-  before_action :authenticate_user!
-  before_action :authenticate_admin!, only: %i[create update destroy]
+  # before_action :authenticate_user!
+  # before_action :authenticate_admin!, only: %i[create update destroy]
 
   # GET /areas
   def index

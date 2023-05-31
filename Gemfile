@@ -7,7 +7,9 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 # Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
+# gem "mysql2", "~> 0.5"
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -49,5 +51,7 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'faker'
   gem 'rubocop-rails', require: false
+  gem 'table_display'
 end

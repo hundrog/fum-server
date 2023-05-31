@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
   include Authorization
-  before_action :set_user, only: [:update]
+  before_action :set_user, only: [:show, :update]
   before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.with_area_name.all
   end
 
   # GET /areas/1
-  def show
-    render json: current_user
-  end
+  def show;end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -27,7 +25,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      user_id = params[:id].presence || current_user&.id
+      @user = User.with_area_name.find(user_id)
     end
 
     # Only allow a list of trusted parameters through.
