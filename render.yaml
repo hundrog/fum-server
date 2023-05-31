@@ -1,0 +1,18 @@
+databases:
+  - name: fum_server
+    databaseName: fum_server
+    user: fum_server_user
+
+services:
+  - type: web
+    name: fum_server
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fum_server
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

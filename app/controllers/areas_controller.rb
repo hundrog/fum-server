@@ -19,6 +19,7 @@ class AreasController < ApplicationController
     @area = Area.new(area_params)
 
     if @area.save
+      AreaMailer.with(area: @area, user: current_user).welcome_email.deliver_now
       render json: @area, status: :created, location: @area
     else
       render json: @area.errors, status: :unprocessable_entity
